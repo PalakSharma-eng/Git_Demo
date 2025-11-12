@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pull-Down Card for Mayuri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fce7f3; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  
+            scrollbar-width: none;  
+        }
+    </style>
+</head>
+<body class="no-scrollbar">
+
+    <div id="card" class="relative w-full max-w-sm mx-auto shadow-2xl rounded-3xl bg-white overflow-hidden transition-all duration-300 ease-in-out">
+        <div class="p-6 text-center bg-fuchsia-600 text-white rounded-t-3xl shadow-lg">
+            <h1 class="text-3xl font-extrabold mb-1">💌 To My Bestie, Mayuri!</h1>
+            <p class="text-lg font-light">A little note just for you.</p>
+        </div>
+        <div id="hidden-content" class="p-6 bg-white overflow-hidden transition-[max-height] duration-500 ease-out no-scrollbar" style="max-height: 0px;">
+            <div class="text-gray-700 space-y-4">
+                <p class="text-xl font-semibold text-fuchsia-700">Hey Mayuri,</p>
+                <p class="text-base leading-relaxed">
+                    You've always been the absolute best part of my day, every day. 
+                    I wanted to send you a little reminder of how much I value our friendship. 
+                    From our crazy late-night calls to the times we just sit in silence and get each other—you're irreplaceable.
+                </p>
+                <p class="text-base leading-relaxed">
+                    You have such a kind heart and a fierce spirit. Keep shining and being the amazing, supportive person you are. 
+                    Seriously, you make the world a better, brighter, and much funnier place just by existing.
+                </p>
+                <p class="text-lg font-bold pt-2 text-fuchsia-600">
+                    Never forget how awesome you are! Always here for you, no matter what.
+                </p>
+            </div>
+            
+            <div class="mt-6 text-right text-sm text-gray-500 border-t pt-4">
+                <p>Love always,</p>
+                <p class="font-bold text-base text-fuchsia-800">Your Best Friend</p>
+            </div>
+        </div>
+
+        <div id="pull-handle" class="cursor-grab p-3 text-center bg-fuchsia-300 text-fuchsia-800 font-bold shadow-xl rounded-b-3xl hover:bg-fuchsia-400 transition-colors duration-200 ease-in-out">
+            <svg class="w-6 h-6 inline-block transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            <span id="handle-text">Pull Down to Reveal Your Secret Message!</span>
+            <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </div>
+    </div>
+
+<script>
+    let isDragging = false;
+    let startY = 0;
+    let currentHeight = 0;
+        const MAX_HEIGHT = 450; 
+    const card = document.getElementById('card');
+    const handle = document.getElementById('pull-handle');
+    const handleText = document.getElementById('handle-text');
+    const hiddenContent = document.getElementById('hidden-content');
+        const startDrag = (e) => {
+        if (parseFloat(hiddenContent.style.maxHeight) < MAX_HEIGHT) {
+            isDragging = true;
+            startY = e.clientY || e.touches[0].clientY;
+            currentHeight = parseFloat(hiddenContent.style.maxHeight) || 0;
+            
+            handle.classList.add('cursor-grabbing', 'bg-fuchsia-400');
+            handle.style.transition = 'none'; 
+            hiddenContent.style.transition = 'none';
+        }
+    };
+    const moveDrag = (e) => {
+        if (!isDragging) return;
+
+        const currentY = e.clientY || e.touches[0].clientY;
+        const dy = currentY - startY; 
+        let newHeight = Math.min(MAX_HEIGHT, Math.max(0, currentHeight + dy));
+        
+        hiddenContent.style.maxHeight = ${newHeight}px;
+
+        
+        e.preventDefault(); 
+    };
+
+    const endDrag = () => {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        handle.classList.remove('cursor-grabbing', 'bg-fuchsia-400');
+
+        handle.style.transition = 'all 0.3s ease-out';
+        hiddenContent.style.transition = 'max-height 0.3s ease-out';
+        
+        const currentOpenHeight = parseFloat(hiddenContent.style.maxHeight);
+        
+            if (currentOpenHeight > MAX_HEIGHT * 0.4) {
+            hiddenContent.style.maxHeight = ${MAX_HEIGHT}px;
+            handleText.textContent = "Message Fully Revealed! 😊";
+            handle.classList.remove('cursor-grab', 'hover:bg-fuchsia-400', 'bg-fuchsia-300', 'text-fuchsia-800');
+            handle.classList.add('cursor-default', 'bg-fuchsia-600', 'text-white');
+        } else {
+            hiddenContent.style.maxHeight = '0px';
+        }
+    };
+
+    handle.addEventListener('mousedown', startDrag);
+    window.addEventListener('mousemove', moveDrag);
+    window.addEventListener('mouseup', endDrag);
+
+    handle.addEventListener('touchstart', (e) => startDrag(e));
+    window.addEventListener('touchmove', moveDrag);
+    window.addEventListener('touchend', endDrag);
+
+    handle.addEventListener('touchmove', (e) => {
+        if (isDragging) e.preventDefault();
+    }, { passive: false });
+</script>
+</body>
+</html>
