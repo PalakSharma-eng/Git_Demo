@@ -1,72 +1,75 @@
- body {
-    background-color: #dddddd;
-    font-family: Arial, sans-serif;
-    text-align: center;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-
-h1 {
-    margin-top: 30px;
-    font-size: 2.6rem;
-    color: #444;
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
-.product-card {
-    background-color: #f5f5f5;
-    border: 2px solid #ccc;
-    border-radius: 16px;
-    box-shadow: 0 6px 28px rgba(0,0,0,0.08);
-    width: 370px;
-    margin: 40px auto;
-    padding: 32px 22px 28px 22px;
+.navbar {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    background-color: rgb(199, 106, 106);
+    color: white;
+    padding: 15px 20px;
 }
-
-.product-image {
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
-    margin-bottom: 20px;
-}
-
-.product-title {
-    font-size: 1.7rem;
+.logo {
+    font-size: 1.5rem;
     font-weight: bold;
-    margin: 16px 0 8px 0;
-    color: #333;
+    
 }
 
-.product-description {
-    font-size: 1.07rem;
-    margin: 0 0 16px 0;
-    color: #888;
+.nav-links {
+    display: flex;
+    list-style: none;
 }
 
-.product-price {
-    font-size: 1.28rem;
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+.actions a {
+    margin-left: 15px;
+    color: white;
+    text-decoration: none;
     font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-}
-.product-price span {
-    color: #222;
 }
 
-.add-to-cart {
-    background-color: #2766e4;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 12px 38px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(39,102,228,0.12);
-    transition: background 0.2s;
+@media (max-width:768px) {
+    .nav-links {
+        display: none;
+    }
+    .actions {
+        font-size: 0,9rem;
+    }
 }
-.add-to-cart:hover {
-    background-color: #174bc1;
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav-links a {
+        font-size: 0.9rem;
+    }
 }
+
+@media (min-width: 1025px) {
+    .nav-links a {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
