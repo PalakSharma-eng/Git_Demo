@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel reservation form</title>
+</head>
+<body>
+
+<h1>Travel reservation form</h1>
+<p>* denotes mandotory</p>
+
+<form>
+
+    <!-- Full name -->
+    <label for="fullname">Full name*:</label><br>
+    <input type="text" id="fullname" name="fullname" placeholder="FirstName LastName"><br><br>
+
+    <!-- Email -->
+    <label for="email">Email address*:</label><br>
+    <input type="email" id="email" name="email" placeholder="EMAIL_ADDRESS"><br><br>
+
+    <!-- Tour package -->
+    <label for="package">Select Tour Package* :</label><br>
+    <select id="package" name="package">
+        <option>Goa</option>
+        <option>Shimla</option>
+        <option>Manali</option>
+        <option>Jaipur</option>
+    </select><br><br>
+
+    <!-- Arrival date -->
+    <label for="arrival">Arrival date*:</label><br>
+    <input type="date" id="arrival" name="arrival"><br><br>
+
+    <!-- Number of persons -->
+    <label for="persons">Number of persons*:</label><br>
+    <input type="number" id="persons" name="persons"><br><br>
+
+    <!-- Services -->
+    <p>What would you want to avail?*</p>
+    <input type="checkbox" id="boarding" name="service" value="Boarding">
+    <label for="boarding">Boarding</label><br>
+
+    <input type="checkbox" id="fooding" name="service" value="Fooding">
+    <label for="fooding">Fooding</label><br>
+
+    <input type="checkbox" id="sightseeing" name="service" value="Sight seeing">
+    <label for="sightseeing">Sight seeing</label><br><br>
+
+    <!-- Discount code -->
+    <label for="coupon">Discount Coupon code:</label><br>
+    <input type="text" id="coupon" name="coupon"><br><br>
+
+    <!-- Terms and conditions -->
+    <p>Terms and conditions*</p>
+    <input type="radio" id="agree" name="tnc" value="agree">
+    <label for="agree">I agree</label>
+    <input type="radio" id="disagree" name="tnc" value="disagree">
+    <label for="disagree">I disagree</label><br><br>
+
+    <!-- Submit -->
+    <input type="submit" value="Complete reservation">
+
+</form>
+
+</body>
+</html>
