@@ -1,35 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Hotel Room Booking Form</title>
+    <meta charset="UTF-8">
+    <title>Send e-mail</title>
 </head>
 <body>
-    <div>
-        <h3>Hotel Room Booking Form</h3>
-        <form>
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name"><br><br>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email"><br><br>
-            
-            <label for="checkin">Check-in Date:</label>
-            <input type="date" id="checkin" name="checkin"><br><br>
-            
-            <label for="checkout">Check-out Date:</label>
-            <input type="date" id="checkout" name="checkout"><br><br>
-            
-            <label for="roomtype">Room Type:</label>
-            <select id="roomtype" name="roomtype">
-                <option value="single">Single</option>
-                <option value="double">Double</option>
-                <option value="suite">Suite</option>
-            </select><br><br>
-            
-            <button type="submit">Book Now</button>
-        </form>
-    </div>
 
-    
+    <h2>Send e-mail to someone@example.com:</h2>
+
+    <form action="mailto:someone@example.com" method="post" enctype="text/plain">
+        <p>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="your name">
+        </p>
+
+        <p>
+            <label for="email">E-mail:</label><br>
+            <input type="email" id="email" name="email" placeholder="your email">
+        </p>
+
+        <p>
+            <label for="comment">Comment:</label><br>
+            <input type="text" id="comment" name="comment" placeholder="your comment" size="60">
+        </p>
+
+        <p>
+            <input type="submit" value="Send">
+            <input type="reset" value="Reset">
+        </p>
+    </form>
+
 </body>
 </html>
