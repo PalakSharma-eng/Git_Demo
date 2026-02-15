@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task Manager</title>
+</head>
+<body style="margin:0; font-family:Arial, sans-serif; background:#e6f4fb;">
+
+  <!-- center card -->
+  <div style="
+      width:420px;
+      margin:80px auto;
+      background:#ffffff;
+      border-radius:12px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.12);
+      padding:25px 30px 30px 30px;
+    ">
+
+    <!-- title -->
+    <h2 style="text-align:center; color:#1976d2; margin-top:0; margin-bottom:20px;">
+      Task Manager
+    </h2>
+
+    <!-- input row -->
+    <div style="display:flex; gap:10px; margin-bottom:20px;">
+      <input type="text"
+             placeholder="What needs to be done?"
+             style="
+               flex:1;
+               padding:8px 10px;
+               border:2px solid #1976d2;
+               border-radius:6px;
+               outline:none;
+             ">
+      <button style="
+               background:#1976d2;
+               color:#fff;
+               border:none;
+               padding:8px 16px;
+               border-radius:6px;
+               cursor:pointer;
+             ">
+        Add Task
+      </button>
+    </div>
+
+    <!-- task row 1 -->
+    <div style="display:flex; align-items:center; justify-content:space-between;
+                padding:10px 0; border-top:1px solid #f0f0f0;">
+      <span style="color:#02c66f; font-size:18px;">✔</span>
+      <span style="flex:1; margin:0 15px; text-decoration:line-through; color:#888;">
+        Task A
+      </span>
+      <button style="
+               background:#ff4b4b;
+               color:#fff;
+               border:none;
+               padding:6px 14px;
+               border-radius:6px;
+               cursor:pointer;
+             ">
+        Remove
+      </button>
+    </div>
+
+    <!-- task row 2 -->
+    <div style="display:flex; align-items:center; justify-content:space-between;
+                padding:10px 0; border-top:1px solid #f0f0f0;">
+      <span style="color:#02c66f; font-size:18px;">✔</span>
+      <span style="flex:1; margin:0 15px; color:#333;">
+        Task B
+      </span>
+      <button style="
+               background:#ff4b4b;
+               color:#fff;
+               border:none;
+               padding:6px 14px;
+               border-radius:6px;
+               cursor:pointer;
+             ">
+        Remove
+      </button>
+    </div>
+
+    <!-- task row 3 -->
+    <div style="display:flex; align-items:center; justify-content:space-between;
+                padding:10px 0; border-top:1px solid #f0f0f0; border-bottom:1px solid #f0f0f0;">
+      <span style="
+             display:inline-block;
+             width:22px;
+             height:22px;
+             border-radius:6px;
+             border:2px solid #1976d2;
+             text-align:center;
+             line-height:18px;
+             color:#02c66f;
+           ">
+        ✔
+      </span>
+      <span style="flex:1; margin:0 15px; text-decoration:line-through; color:#888;">
+        Task C
+      </span>
+      <button style="
+               background:#ff4b4b;
+               color:#fff;
+               border:none;
+               padding:6px 14px;
+               border-radius:6px;
+               cursor:pointer;
+             ">
+        Remove
+      </button>
+    </div>
+
+  </div>
+</body>
+</html>
